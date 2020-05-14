@@ -54,7 +54,6 @@ class StatsServiceTest {
 
         long expected = 5;
 
-        long av = service.calculateAverageSum(purchases);
         long actual = service.calculateBelowAverageSumMonth(purchases);
 
         assertEquals(expected, actual);
@@ -65,7 +64,6 @@ class StatsServiceTest {
 
         long expected = 5;
 
-        long av = service.calculateAverageSum(purchases);
         long actual = service.calculateAboveAverageSumMonth(purchases);
 
         assertEquals(expected, actual);
