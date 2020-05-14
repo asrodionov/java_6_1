@@ -9,11 +9,7 @@ public class StatsService {
         return sum;
     }
     public long calculateAverageSum(long[] purchases) {
-        long sum = 0;
-        for (long purchase : purchases) {
-            sum += purchase;
-        }
-        return sum / 12;
+        return calculateSumPurchases(purchases) / 12;
     }
     public long calculateMaxPurchasesMonth(long[] purchases) {
         long max = 0;
@@ -24,7 +20,7 @@ public class StatsService {
                 max = purchase;
                 n = i;
             }
-        i = i + 1;
+        i++;
         }
         return n;
     }
@@ -37,12 +33,13 @@ public class StatsService {
                 min = purchase;
                 n = i;
             }
-            i = i + 1;
+            i++;
         }
         return n;
     }
-    public long calculateBelowAverageSumMonth(long[] purchases, long av) {
+    public long calculateBelowAverageSumMonth(long[] purchases) {
         int n = 0;
+        long av = calculateAverageSum(purchases);
         for (long purchase : purchases) {
             if (purchase < av) {
                 n = n + 1;
@@ -50,8 +47,9 @@ public class StatsService {
         }
         return n;
     }
-    public long calculateAboveAverageSumMonth(long[] purchases, long av) {
+    public long calculateAboveAverageSumMonth(long[] purchases) {
         int n = 0;
+        long av = calculateAverageSum(purchases);
         for (long purchase : purchases) {
             if (purchase > av) {
                 n = n + 1;
