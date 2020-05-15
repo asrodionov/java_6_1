@@ -42,7 +42,7 @@ public class StatsService {
         long av = calculateAverageSum(purchases);
         for (long purchase : purchases) {
             if (purchase < av) {
-                n = n + 1;
+                n++;
             }
         }
         return n;
@@ -52,7 +52,7 @@ public class StatsService {
         long av = calculateAverageSum(purchases);
         for (long purchase : purchases) {
             if (purchase > av) {
-                n = n + 1;
+                n++;
             }
         }
         return n;
